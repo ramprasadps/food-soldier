@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.sidenav-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+    background-color: #2c2c54;
+}
+
+.drawer-btn {
+    background-color: transparent;
+}
+
+.white-icon {
+    color: white;
+}
+
+.toolbar-div {
+    padding-top: 50px;
+}
+
+.floating-btn {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+.floating-btn button {
+    background-color: #2c2c54;
+}

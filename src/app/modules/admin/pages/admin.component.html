@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="sidenav-toolbar">
+    <button mat-icon-button class="drawer-btn">
+        <mat-icon routerLink="/home" class="white-icon">keyboard_arrow_left</mat-icon>
+    </button>
+    <app-title title="Admin"></app-title>
+</mat-toolbar>
+<div class="toolbar-div">
+
+    <mat-nav-list>
+        <mat-list-item *ngFor="let adminConfig of adminConfigList" (click)="handleAdminItemClick(adminConfig)">
+            <a matLine routerLinkActive="active">{{ adminConfig.menuName }}</a>
+            <button mat-icon-button class="drawer-btn">
+               <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+        </mat-list-item>
+    </mat-nav-list>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Configuration
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let configMenu of configMenuList" (click)="configConfigMenuItemClick(configMenu)">
+                    <a matLine routerLinkActive="active">{{ configMenu.menuName }}</a>
+                    <button mat-icon-button class="drawer-btn">
+                           <mat-icon>keyboard_arrow_right</mat-icon>
+                        </button>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<!-- <router-outlet></router-outlet> -->

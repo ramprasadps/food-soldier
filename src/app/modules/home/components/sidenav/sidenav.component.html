@@ -1,0 +1,35 @@
+<div *ngIf="routerUrl == '/home'">
+    <div class="sidenav-container" [class.sidenav-is-mobile]="mobileQuery.matches">
+        <mat-toolbar color="primary" class="sidenav-toolbar">
+            <button mat-icon-button (click)="snav.toggle()" class="drawer-btn">
+            <mat-icon class="white-icon">menu</mat-icon>
+        </button>
+            <app-title title="Food Soldier"></app-title>
+            <div class="profile-btn-div">
+                <button mat-icon-button class="profile-btn">
+                <mat-icon class="white-icon">person</mat-icon>
+            </button>
+            </div>
+        </mat-toolbar>
+
+        <mat-sidenav-container class="sidenav-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+
+            <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                <mat-nav-list>
+                    <mat-list-item *ngFor="let navItem of sidemenuOptionList" (click)="handleNavItemClick(navItem)">{{navItem.menuName}}
+                        <a routerLink="navItem.menuPath" routerLinkActive="active"></a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-sidenav>
+
+            <mat-sidenav-content>
+                <mat-grid-list cols="3" rowHeight="100px">
+                    <mat-grid-tile *ngFor="let content of cardDataList" [colspan]="1" [rowspan]="1" [style.background]="content.cardColor">
+                        <food-card [cardData]=content>{{content}}</food-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+    </div>
+</div>
